@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/galaxy"
     tools:context="com.chirag.calculator.calculator.MainActivity">
 
     <TextView
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:id="@+id/display_text"
@@ -21,7 +23,6 @@
             style="@style/ButtonStyle"
             android:id="@+id/btn_7"
             android:text="7"/>
-
         <Button
             style="@style/ButtonStyle"
             android:id="@+id/btn_8"
@@ -54,12 +55,12 @@
             style="@style/ButtonStyle"
             android:id="@+id/btn_6"
             android:text="6"/>
+
         <Button
             style="@style/ButtonStyle"
             android:id="@+id/btn_mul"
             android:text="*"/>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,7 +101,7 @@
         <Button
             style="@style/ButtonStyle"
             android:id="@+id/btn_eq"
-            android:text="-"/>
+            android:text="="/>
         <Button
             style="@style/ButtonStyle"
             android:id="@+id/btn_minus"

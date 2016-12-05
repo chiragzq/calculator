@@ -38,15 +38,27 @@ public class MainActivity extends Activity {
         findViewById(R.id.btn_minus).setOnClickListener(listener);
         findViewById(R.id.btn_mul).setOnClickListener(listener);
         findViewById(R.id.btn_div).setOnClickListener(listener);
-        findViewById(R.id.btn_dot).setOnClickListener(listener);
+        findViewById(R.id.btn_dot).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(lastTerm(mEquation).contains(".")){
+                    return;
+                }
+                mEquation = mEquation + ".";
+                updateDisplay();
+            }
+        });
 
         findViewById(R.id.btn_del).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(mEquation.isEmpty()) {
+                if(mEquation.isEmpty()) {
                     return;
                 }
-                mEquation = mEquation.substring(0, mEquation.length() - 1);
+                    return;
+                }
+                        mEquation = mEquation.substring(0, mEquation.length() - 1);
                 updateDisplay();
             }
         });
@@ -135,5 +147,14 @@ public class MainActivity extends Activity {
             if (eq.charAt(i) == '/' || eq.charAt(i) == '*') return i;
         }
         return -1;
+    }
+    public String lastTerm(String eq) {
+        String term = "";
+        for (int i = eq.length() - 1; i >= 0; i--) {
+            if ("*/-+".contains(eq.charAt(i) + "")) {
+                return eq.substring(i + 1);
+            }
+        }
+        return eq;
     }
 }
